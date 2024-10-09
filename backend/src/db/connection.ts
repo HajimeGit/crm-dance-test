@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 export const connectDB = async (): Promise<typeof mongoose> => {
   try {
-    const db = await mongoose.connect('mongodb://localhost:27017/crmDanceTest');
+    const db = await mongoose.connect(process.env.DATABASE_URL);
     console.log('Connected to MongoDB');
     return db;
   } catch (error) {

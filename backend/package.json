@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "index.ts",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch --env-file=.env src/index.ts",
     "build": "tsc --traceResolution",
-    "start": "node dist/index.js"
+    "start": "node --env-file=.env dist/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,10 +13,14 @@
   "dependencies": {
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
+    "cors": "^2.8.5",
     "express": "^4.21.0",
-    "mongoose": "^8.7.0"
+    "mongoose": "^8.7.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@rrweb/types": "^2.0.0-alpha.17",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.5",
     "tsx": "^4.19.1",

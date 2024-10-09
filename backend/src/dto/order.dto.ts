@@ -1,29 +1,15 @@
-import {
-  IsString,
-  IsEmail,
-  IsNotEmpty,
-  IsPhoneNumber,
-  IsNumber,
-} from 'class-validator';
+import { IsString, IsEmail, IsNotEmpty, IsNumber } from 'class-validator';
 
 export class CreateOrderDto {
   @IsString()
   @IsNotEmpty()
-  uuid: string;
-
-  @IsString()
-  @IsNotEmpty()
-  first_name: string;
-
-  @IsString()
-  @IsNotEmpty()
-  last_name: string;
+  name: string;
 
   @IsEmail()
   @IsNotEmpty()
   email: string;
 
-  @IsPhoneNumber()
+  // Let the frontend validate the number.
   @IsNotEmpty()
   phone_number: string;
 
@@ -34,10 +20,6 @@ export class CreateOrderDto {
   @IsString()
   @IsNotEmpty()
   city: string;
-
-  @IsString()
-  @IsNotEmpty()
-  region: string;
 
   @IsString()
   @IsNotEmpty()

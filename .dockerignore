@@ -1,0 +1,10 @@
+./backend/Dockerfile
+./frontend/Dockerfile
+
+./backend/.dockerignore
+./frontend/.dockerignore
+
+
+./frontend/node_modules
+
+./backend/dist
