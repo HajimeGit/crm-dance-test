@@ -57,7 +57,7 @@ Payload example:
 ```json
 {
   "uuid": "b1a5c6d9-e7a1-4f6b-bc92-0e30db2a4f2b",
-  "events: []
+  "events": []
 }
 
 ```
