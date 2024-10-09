@@ -17,7 +17,7 @@ Go inside the repository:
 Run docker script
 
 ```bash
-  docker-compose up --build
+  docker-compose up --build -d
 ```
 
 Go to frontend part
