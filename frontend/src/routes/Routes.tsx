@@ -22,10 +22,10 @@ const router = createBrowserRouter([
         path: '/order/success',
         element: <Success />,
       },
-      { path: '/rrweb/recordings', element: <Recordings /> },
       { path: '/not-found', element: <NotFound /> },
     ],
   },
+  { path: '/rrweb/recordings', element: <Recordings /> },
   {
     path: '*',
     element: <Navigate to='/not-found' />,

@@ -53,59 +53,68 @@ const Recordings = () => {
     </Typography>
   );
 
-  return rows?.length ? (
-    <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-      <PageTitle text='Recordings' />
-      <TableContainer
-        sx={{ height: '100%', maxWidth: '800px' }}
-        component={Paper}
-      >
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <strong>Session UUID</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Date</strong>
-              </TableCell>
-              <TableCell>
-                <strong>Play</strong>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((session) => (
-                <TableRow key={session.uuid}>
-                  <TableCell>{session.uuid}</TableCell>
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100vh',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      {rows?.length ? (
+        <>
+          <PageTitle text='Recordings' />
+          <TableContainer sx={{ maxWidth: '800px' }} component={Paper}>
+            <Table>
+              <TableHead>
+                <TableRow>
                   <TableCell>
-                    {new Date(session.createdAt).toLocaleString()}
+                    <strong>Session UUID</strong>
                   </TableCell>
                   <TableCell>
-                    <Button onClick={() => handleModalOpen(session.uuid)}>
-                      <PlayCircleFilledIcon />
-                    </Button>
+                    <strong>Date</strong>
+                  </TableCell>
+                  <TableCell>
+                    <strong>Play</strong>
                   </TableCell>
                 </TableRow>
-              ))}
-          </TableBody>
-        </Table>
-        <TablePagination
-          component='div'
-          count={rows.length}
-          onPageChange={(_, page) => handlePageChange(page)}
-          page={page}
-          rowsPerPage={rowsPerPage}
-          rowsPerPageOptions={[5, 7]}
-          onRowsPerPageChange={handleRowsPerPageChange}
-        ></TablePagination>
-      </TableContainer>
-      <PlayerModal open={open} setOpen={setOpen} uuid={uuid} />
+              </TableHead>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((session) => (
+                    <TableRow key={session.uuid}>
+                      <TableCell>{session.uuid}</TableCell>
+                      <TableCell>
+                        {new Date(session.createdAt).toLocaleString()}
+                      </TableCell>
+                      <TableCell>
+                        <Button onClick={() => handleModalOpen(session.uuid)}>
+                          <PlayCircleFilledIcon />
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+            <TablePagination
+              component='div'
+              count={rows.length}
+              onPageChange={(_, page) => handlePageChange(page)}
+              page={page}
+              rowsPerPage={rowsPerPage}
+              rowsPerPageOptions={[5, 7]}
+              onRowsPerPageChange={handleRowsPerPageChange}
+            ></TablePagination>
+          </TableContainer>
+          <PlayerModal open={open} setOpen={setOpen} uuid={uuid} />
+        </>
+      ) : (
+        Loading
+      )}
     </Box>
-  ) : (
-    Loading
   );
 };
 
