@@ -27,6 +27,8 @@ Go to frontend part
 ```
 ## Frontend Structure
 
+Site Roadmap: [Link](https://drive.google.com/file/d/1CaHw2s1Enhdz05diIEbPfuy2UbhjsDY1/view?usp=sharing)
+
 - **Marketplace ('/')**: The homepage displaying a list of products available for purchase.
 - **Product ('/product/:id')**: The product detail page for a specific item in the marketplace.
 - **Order ('/order/:productId)**: The order creation page where users can place an order for the selected product.
